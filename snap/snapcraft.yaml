@@ -18,10 +18,12 @@ passthrough:
 
 parts:
   vclibs:
+    source: https://github.com/raspberrypi/userland.git
+    source-depth: 1
     plugin: nil
     override-build: |
-      git clone --depth=1 https://github.com/raspberrypi/userland.git .
-      ./buildme "$SNAPCRAFT_PART_INSTALL"
+      ./buildme .
+      cp -av build/arm-linux/release/opt/vc/* $SNAPCRAFT_PART_INSTALL/
     build-packages:
       - cmake
       - g++-arm-linux-gnueabihf
