@@ -11,11 +11,6 @@ architectures:
   - build-on: amd64
     run-on: armhf
 
-passthrough:
-  layout:
-    /opt/vc:
-      bind: $SNAP/opt/vc
-
 parts:
   vclibs:
     source: https://github.com/raspberrypi/userland.git
